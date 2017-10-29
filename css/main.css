@@ -153,3 +153,6 @@ body {
 /*.swiper-slide .bg {*/
 
 /*}*/
+
+.swiper-pagination-h li{float: left;}
+.swiper-pagination-h li.on{color: #fff;}
