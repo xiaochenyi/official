@@ -22,16 +22,16 @@
             <div class="bg"></div>
         </div>
         <div class="swiper-slide page3" data-hash="page3">
-            <!--<div id="video-wrap" class="video-wrap">-->
-                <!--<video width="1920" height="1080">-->
-                    <!--<source src="img/video.mp4" type="video/mp4">-->
-                <!--</video>-->
-                <!--<div class="mask op60"></div>-->
-            <!--</div>-->
+            <div id="video-wrap" class="video-wrap">
+                <video width="1920" height="1080">
+                    <source src="img/video.mp4" type="video/mp4">
+                </video>
+                <div class="mask op60"></div>
+            </div>
             <div class="bg"></div>
-            <!--<div id="video-play" class="video-play circle">-->
-                <!--<div class="video-play-inner"><span></span></div>-->
-            <!--</div>-->
+            <!-- <div id="video-play" class="video-play circle">
+                <div class="video-play-inner"><span></span></div>
+            </div> -->
         </div>
         <div class="swiper-slide page4" data-hash="page4">
             <div class="bg"></div>
@@ -64,19 +64,13 @@
 <script src="js/jq_swiper.js"></script>
 <script src="js/swiper.animate1.0.2.min.js"></script>
 <script>
-
+var video = $("#video-wrap video")[0];
 $(function() {
-    // 初始化播放
-//    var video = $("#video-wrap video")[0];
-//
-//    $(video).on("loadeddata",function() {
-//        video.play();
-//        $(".bg").hide();
-//    });
-//
-//    $(".video-play").on("click", function(){
-//        video.pause();
-//    })
+    
+        // var video = $("#video-wrap video")[0];
+           // $(".video-play").on("click", function(){
+           //     video.pause();
+           // })
 });
 
 var mySwiper = new Swiper('.swiper-container-v',{
@@ -90,11 +84,27 @@ var mySwiper = new Swiper('.swiper-container-v',{
     paginationClickable: true,
     hashnav:true,
     onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
-//        swiperAnimateCache(swiper); //隐藏动画元素
-        swiperAnimate(swiper); //初始化完成开始动画
+        if(swiper.activeIndex == 2) {
+            var video = $("#video-wrap video")[0];
+            $(".bg").hide();
+            video.play();
+            
+        } else {
+            var video = $("#video-wrap video")[0];
+            $(".bg").show();
+            video.pause();
+        }
     },
     onSlideChangeEnd: function(swiper){
-        swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        if(swiper.activeIndex == 2) {
+            var video = $("#video-wrap video")[0];
+            $(".bg").hide();
+            video.play();
+        } else {
+            var video = $("#video-wrap video")[0];
+            $(".bg").show();
+            video.pause();
+        }
     }
 });
 
