@@ -8,11 +8,31 @@
     <link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <style>
-
-    </style>
 </head>
 <body>
+<div class="header">
+    <div class="con con-white">
+        <img src="img/logo-white.png" class="fl" id="logo">
+        <img src="img/menu-white.png" class="btn-menu" id="btn-menu" data-clickable="true">
+    </div>
+    <div class="con con-black" style="display: none">
+        <img src="img/logo-black.png" class="fl" id="logo-black">
+        <img src="img/menu-black.png" class="btn-menu" id="btn-menu-black" data-clickable="true">
+    </div>
+</div>
+<div class="menu-list" id="menu-list">
+    <div class="con">
+        <ul>
+            <li class="on"><a href="#page1">首页</a></li>
+            <li><a href="#page2">产品介绍</a></li>
+            <li><a href="#page3">新闻资讯</a></li>
+            <li><a href="#page4">关于公司</a></li>
+            <li><a href="#page5">合作伙伴</a></li>
+            <li><a href="#page6">联系我们</a></li>
+        </ul>
+    </div>
+</div>
+
 <div class="swiper-container swiper-container-v">
     <div class="swiper-wrapper">
         <div class="swiper-slide page1" data-hash="page1">
@@ -20,6 +40,11 @@
         </div>
         <div class="swiper-slide page2" data-hash="page2">
             <div class="bg"></div>
+            <div class="cont"><img src="img/page2-cont.png" width="100%"></div>
+            <div class="btn">
+                <img src="img/btn-down-ios.png" width="43%" class="fl">
+                <img src="img/btn-down-andr.png" width="43%" class="fr">
+            </div>
         </div>
         <div class="swiper-slide page3" data-hash="page3">
             <div id="video-wrap" class="video-wrap">
@@ -39,12 +64,35 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="bg4-1"></div>
+                        <div class="page4-1-cont">
+                            <h2>企业介绍</h2>
+                            <p class="des">东方视界成立于2015年7月，由康得新与国广东方共同创立。作为立体视觉内容及技术的引领者，东方视界以精品内容为基础、游戏变现为保障、技术和业务创新为核心，同时基于自身平台、3D技术、IP运营等优势，发展直播、电商等创新业务，打造创新业务形态。</p>
+                            <p class="more"><a href="introduction.html" target="_blank">查看更多 > </a></p>
+                        </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="bg4-2"></div>
+                        <div class="page4-2-cont">
+                            <h2>产品技术</h2>
+                            <img src="img/page4-2-cont.png" width="95%">
+                        </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="bg4-3"></div>
+                        <div class="page4-3-cont">
+                            <h2>社会招聘</h2>
+                            <table>
+                                <thead>
+                                    <tr><th>职位名称</th><th>职位类别</th><th>工作地点</th><th>发布时间</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>软件技术项目经理<span class="type">急聘</span></td><td>技术类</td><td>上海市 </td><td>2017-10-13</td></tr>
+                                    <tr><td>APP产品运营经理<span class="type">项目经理</span></td><td>营销类</td><td>深圳市 </td><td>2017-10-13</td></tr>
+                                    <tr><td>校园市场推广专员</td><td>技术类</td><td>上海市 </td><td>2017-10-13</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="more"><a href="recruitList.html" target="_blank">更多职位 > </a></p>
+                        </div>
                     </div>
                 </div>
                 <div class="swiper-pagination-h">
@@ -53,9 +101,23 @@
         </div>
         <div class="swiper-slide page5" data-hash="page5">
             <div class="bg"></div>
+            <div class="cont"><img src="img/page5-cont.png" width="100%"></div>
         </div>
         <div class="swiper-slide page6" data-hash="page6">
             <div class="bg"></div>
+            <div class="cont">
+                <img src="img/map.png" width="40%" class="fl">
+                <div class="contact fl">
+                    <h2>联系我们</h2>
+                    <h3>东方视界科技 (北京) 有限公司</h3>
+                    <p class="en">Oriental Vision Technology (Beijing) Co., Ltd.</p>
+                    <p>地址：北京市朝阳区来广营西路5号诚盈中心7号楼6层</p>
+                    <p>邮编： 100085</p>
+                    <p>电话：+86 010 62581699  / 010-60641790</p>
+                    <p>传真： 01060606666-1101</p>
+                    <p>网址：www.3dov.cn</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="swiper-pagination swiper-pagination-v"></div>
@@ -65,81 +127,135 @@
 <script src="js/jq_swiper.js"></script>
 <script src="js/swiper.animate1.0.2.min.js"></script>
 <script>
-var video = $("#video-wrap video")[0];
+var videoEle = $("#video-wrap video")[0];
 $(function() {
     
-        // var video = $("#video-wrap video")[0];
            // $(".video-play").on("click", function(){
            //     video.pause();
            // })
+    // 菜单点击显示
+    $("#btn-menu").on("click",function() {
+        var clickable = $(this).data("clickable");
+        if(clickable) {
+            $("#menu-list").show();
+            this.src = "img/menu-close-white.png";
+            $(this).data("clickable", false);
+            // 模糊效果
+            $(".swiper-container-v").css({
+                "filter":"blur(3px)",
+                "-webkit-filter":"blur(3px)"
+            });
+        } else {
+            $("#menu-list").hide();
+            this.src = "img/menu-white.png";
+            $(this).data("clickable", true);
+            // 模糊效果去除
+            $(".swiper-container-v").css({
+                "filter":"",
+                "-webkit-filter":""
+            });
+        }
+    });
+    $("#btn-menu-black").on("click",function() {
+        var clickable = $(this).data("clickable");
+        if(clickable) {
+            $("#menu-list").show();
+            this.src = "img/menu-close-black.png";
+            $(this).data("clickable", false);
+            // 模糊效果
+            $(".swiper-container-v").css({
+                "filter":"blur(3px)",
+                "-webkit-filter":"blur(3px)"
+            });
+        } else {
+            $("#menu-list").hide();
+            this.src = "img/menu-black.png";
+            $(this).data("clickable", true);
+            // 模糊效果去除
+            $(".swiper-container-v").css({
+                "filter":"",
+                "-webkit-filter":""
+            });
+        }
+    });
+
+    // 菜单列表点击
+    $("#menu-list ul li").on("click", function() {
+        $(this).addClass("on").siblings().removeClass("on");
+
+        $("#btn-menu")[0].src = "img/menu-white.png";
+        $("#btn-menu-black")[0].src = "img/menu-black.png";
+        $("#btn-menu-black").data("clickable", true);
+        $("#btn-menu").data("clickable", true);
+        $("#menu-list").hide();
+
+        // 模糊效果去除
+        $(".swiper-container-v").css({
+            "filter":"",
+            "-webkit-filter":""
+        });
+    });
+
+
+
+    var mySwiper = new Swiper('.swiper-container-v',{
+        speed:400,
+        direction : 'vertical',
+        resistance:'100%',
+        loop:false,
+        mousewheelControl : true,
+        grabCursor: true,
+        pagination: '.swiper-pagination-v',
+        paginationClickable: true,
+        hashnav:true,
+        hashnavWatchState:true,
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+            if(swiper.activeIndex == 1 || swiper.activeIndex == 5) {
+                $(".con-white").hide();
+                $(".con-black").show();
+            } else {
+                $(".con-white").show();
+                $(".con-black").hide();
+            }
+            if(swiper.activeIndex == 2) {
+                $(".bg").hide();
+                videoEle.play();
+            } else {
+                $(".bg").show();
+                videoEle.pause();
+            }
+        },
+        onSlideChangeEnd: function(swiper){
+            if(swiper.activeIndex == 1 || swiper.activeIndex == 5) {
+                $(".con-white").hide();
+                $(".con-black").show();
+            } else {
+                $(".con-white").show();
+                $(".con-black").hide();
+            }
+            if(swiper.activeIndex == 2) {
+                $(".bg").hide();
+                videoEle.play();
+            } else {
+                $(".bg").show();
+                videoEle.pause();
+            }
+        }
+    });
+
+    var mySwiper2 = new Swiper('.swiper-container-h',{
+        nested:true,
+        speed:400,
+        resistance:'100%',
+        loop:false,
+        mousewheelControl : false,
+        grabCursor: true,
+        pagination: '.swiper-pagination-h',
+        paginationClickable: true
+    });
 });
 
-var mySwiper = new Swiper('.swiper-container-v',{
-    speed:400,
-    direction : 'vertical',
-    resistance:'100%',
-    loop:false,
-    mousewheelControl : true,
-    grabCursor: true,
-    pagination: '.swiper-pagination-v',
-    paginationClickable: true,
-    hashnav:true,
-    onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
-        if(swiper.activeIndex == 2) {
-            var video = $("#video-wrap video")[0];
-            $(".bg").hide();
-            video.play();
-            
-        } else {
-            var video = $("#video-wrap video")[0];
-            $(".bg").show();
-            video.pause();
-        }
-    },
-    onSlideChangeEnd: function(swiper){
-        if(swiper.activeIndex == 2) {
-            var video = $("#video-wrap video")[0];
-            $(".bg").hide();
-            video.play();
-        } else {
-            var video = $("#video-wrap video")[0];
-            $(".bg").show();
-            video.pause();
-        }
-    }
-});
 
-var mySwiper2 = new Swiper('.swiper-container-h',{
-    nested:true,
-    speed:400,
-    resistance:'100%',
-    loop:false,
-    mousewheelControl : false,
-    grabCursor: true,
-    pagination: '.swiper-pagination-h',
-    paginationClickable: true
-//    paginationType: "custom",
-//    paginationCustomRender: function (swiper, current, total) {
-//        var html = '<ul>';
-//        if(current == 1) {
-//            html += '<li class="on"><img src="img/icon1-active.png">公司介绍</li>';
-//        } else {
-//            html += '<li><img src="img/icon1.png">公司介绍</li>';
-//        }
-//        if(current == 2) {
-//            html += '<li class="on"><img src="img/icon2-active.png">技术简介</li>';
-//        } else {
-//            html += '<li><img src="img/icon2.png">技术简介</li>';
-//        }
-//        if(current == 3) {
-//            html += '<li class="on"><img src="img/icon3-active.png">社会招聘</li>';
-//        } else {
-//            html += '<li><img src="img/icon3.png">社会招聘</li>';
-//        }
-//        html += '</ul>';
-//        return  html;
-//    }
-});
 
 </script>
 </body>

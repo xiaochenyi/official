@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>企业介绍</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        .swiper-container {width: 100%;height: 100%;padding: 0 10%;}
+        .swiper-slide {height: auto;-webkit-box-sizing: border-box;box-sizing: border-box;
+            font-size:13px;/*font-family:microsoft yahei;*/line-height:1.8;}
+    </style>
+</head>
+<body style="background: #ffffff">
+    <div class="container introduction">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <h1>企业介绍</h1>
+
+                    <h2>立体视觉内容及技术的引领者</h2>
+                    <h3>敢于追求极致，持续创造惊喜</h3>
+                    <div class="line"></div>
+
+                    <p>东方视界成立于2015年7月，由康得新与国广东方共同创立。作为立体视觉内容及技术的引领者，东方视界以精品内容为基础、游戏变现为保障、技术和业务创新为核心，同时基于自身平台、3D技术、IP运营等优势，发展直播、电商等创新业务，打造创新业务形态。</p>
+                    <img src="img/intro1.png" width="100%">
+
+                    <h2>核心业务</h2>
+                    <h3>视觉内容<span class="dot">·</span>视觉应用<span class="dot">·</span>技术解决方案</h3>
+                    <div class="line"></div>
+                    
+                    <img src="img/icon-intro-1.png" style="margin-top: 65px;">
+                    <h2>立体视觉内容</h2>
+                    <p style="padding-top: 0">拥有万部集的立体视频内容，提供成熟的商业3D直播服务；与全球知名游戏厂商合作提供上千种立体游戏，如首发的3D版《海岛战争》、3D版《阴阳师》等；汇聚10万＋的优质图片，支持3D图片上传、分享和定制化打印等。</p>
+                    <img src="img/intro2.png" width="100%">
+
+                    <div class="wrap-box">
+                        <div class="box fl">
+                            <img class="icon" src="img/icon-intro-2.png">
+                            <h2>立体视觉应用</h2>
+                            <p>建立开发者联盟，开发基于立体视觉技术的各种特色应用：工具类、桌面屏保类、图形图像类、游戏类、直播类等。 </p>
+                            <img src="img/intro3.png" width="100%">
+                        </div>
+                        <div class="box fr">
+                            <img class="icon" src="img/icon-intro-3.png">
+                            <h2>立体视觉技术解决方案</h2>
+                            <p>提供3D拍摄、高清显示、2D转3D、3D流媒体和立体视觉内容制作等立体视觉技术解决方案。</p>
+                            <img src="img/intro4.png" width="100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Scroll Bar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jq_swiper.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            scrollbar: '.swiper-scrollbar',
+            direction: 'vertical',
+            slidesPerView: 'auto',
+            mousewheelControl: true,
+            freeMode: true,
+            scrollbarHide:false,
+            scrollbarDraggable : true,
+            roundLengths : true //防止文字模糊
+        });
+    </script>
+</body>
+</html>
