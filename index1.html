@@ -24,12 +24,18 @@
 <div class="menu-list" id="menu-list">
     <div class="con">
         <ul>
-            <li class="on"><a href="#page1">首页</a></li>
-            <li><a href="#page2">产品介绍</a></li>
-            <li><a href="#page3">新闻资讯</a></li>
-            <li><a href="#page4">关于公司</a></li>
-            <li><a href="#page5">合作伙伴</a></li>
-            <li><a href="#page6">联系我们</a></li>
+            <!--<li class="on"><a href="#page1">首页</a></li>-->
+            <!--<li><a href="#page2">产品介绍</a></li>-->
+            <!--<li><a href="#page3">新闻资讯</a></li>-->
+            <!--<li><a href="#page4">关于公司</a></li>-->
+            <!--<li><a href="#page5">合作伙伴</a></li>-->
+            <!--<li><a href="#page6">联系我们</a></li>-->
+            <li class="on">首页</li>
+            <li>产品介绍</li>
+            <li>新闻资讯</li>
+            <li>关于公司</li>
+            <li>合作伙伴</li>
+            <li>联系我们</li>
         </ul>
     </div>
 </div>
@@ -195,6 +201,9 @@ $(function() {
             "filter":"",
             "-webkit-filter":""
         });
+
+        var index = $(this).index();
+        mySwiper.slideTo(index, 500, true);//切换到第一个slide，速度为1秒
     });
 
 
@@ -208,8 +217,8 @@ $(function() {
         grabCursor: true,
         pagination: '.swiper-pagination-v',
         paginationClickable: true,
-        hashnav:true,
-        hashnavWatchState:true,
+//        hashnav:true,
+//        hashnavWatchState:true,
         onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
             if(swiper.activeIndex == 1 || swiper.activeIndex == 5) {
                 $(".con-white").hide();
