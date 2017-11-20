@@ -7,64 +7,32 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css">
     <link rel="stylesheet" type="text/css" href="css/main2.css">
-    <style type="text/css">
-        .pagination-h{
-            width: 100%;
-        }
-        .pagination {
-            position: absolute;
-            z-index: 20;
-            right: 10px;
-            top:50%;
-            width: 8px;
-            text-align: center;
-        }
-        .swiper-pagination-switch {
-            display: block;
-            width: 8px;
-            height: 8px;
-            border-radius: 8px;
-            background: #555;
-            margin: 0 5px;
-            opacity: 0.8;
-            border: 1px solid #fff;
-            cursor: pointer;
-        }
-        .swiper-active-switch {
-            background: #fff;
-        }
-    </style>
+    <script src="//api.html5media.info/1.2.2/html5media.min.js"></script>
 </head>
 <body style="color: red">
 <!--<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">-->
-<!--<div class="header">-->
-    <!--<div class="con con-white">-->
-        <!--<img src="img/logo-white.png" class="fl" id="logo">-->
-        <!--<img src="img/menu-white.png" class="btn-menu" id="btn-menu" data-clickable="true">-->
-    <!--</div>-->
-    <!--<div class="con con-black" style="display: none">-->
-        <!--<img src="img/logo-black.png" class="fl" id="logo-black">-->
-        <!--<img src="img/menu-black.png" class="btn-menu" id="btn-menu-black" data-clickable="true">-->
-    <!--</div>-->
-<!--</div>-->
-<!--<div class="menu-list" id="menu-list">-->
-    <!--<div class="con">-->
-        <!--<ul>-->
-            <!--&lt;!&ndash;<li class="on"><a href="#page1">首页</a></li>&ndash;&gt;-->
-            <!--&lt;!&ndash;<li><a href="#page2">产品介绍</a></li>&ndash;&gt;-->
-            <!--&lt;!&ndash;<li><a href="#page3">新闻资讯</a></li>&ndash;&gt;-->
-            <!--&lt;!&ndash;<li><a href="#page4">关于公司</a></li>&ndash;&gt;-->
-            <!--&lt;!&ndash;<li><a href="#page5">合作伙伴</a></li>&ndash;&gt;-->
-            <!--&lt;!&ndash;<li><a href="#page6">联系我们</a></li>&ndash;&gt;-->
-            <!--<li class="on">首页</li>-->
-            <!--<li>产品介绍</li>-->
-            <!--<li>新闻资讯</li>-->
-            <!--<li>关于公司</li>-->
-            <!--<li>合作伙伴</li>-->
-            <!--<li>联系我们</li>-->
-        <!--</ul>-->
-    <!--</div>-->
-<!--</div>-->
+<div class="header">
+    <div class="con con-white">
+        <img src="img/logo-white.png" class="fl" id="logo">
+        <img src="img/menu-white.png" class="btn-menu" id="btn-menu" data-clickable="true">
+    </div>
+    <div class="con con-black" style="display: none">
+        <img src="img/logo-black.png" class="fl" id="logo-black">
+        <img src="img/menu-black.png" class="btn-menu" id="btn-menu-black" data-clickable="true">
+    </div>
+</div>
+<div class="menu-list" id="menu-list">
+    <div class="con">
+        <ul>
+            <li class="on">首页</li>
+            <li>产品介绍</li>
+            <li>新闻资讯</li>
+            <li>关于公司</li>
+            <li>合作伙伴</li>
+            <li>联系我们</li>
+        </ul>
+    </div>
+</div>
 
 <div class="swiper-container">
     <div class="swiper-wrapper">
@@ -72,16 +40,28 @@
 
         </div>
         <div class="swiper-slide page2">
-                <div class="swiper-container-h">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide page2-1">slider1</div>
-                        <div class="swiper-slide page2-2">slider2</div>
-                        <div class="swiper-slide page2-3">slider3</div>
-                    </div>
-                    <div class="pagination-h"></div>
-                </div>
+
         </div>
-        <div class="swiper-slide page3">slider3</div>
+        <div class="swiper-slide page3">
+            <video src="img/video.mp4" controls preload style="position: absolute;left:0;top:0;right:0;bottom:0;width: 100%;height: 100%;z-index: 15">
+            </video>
+        </div>
+        <div class="swiper-slide page4">
+            <div class="swiper-container-h">
+                <div class="pagination-h" style="z-index: 9999999;"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide page4-1">slider1</div>
+                    <div class="swiper-slide page4-2">slider2</div>
+                    <div class="swiper-slide page4-3">slider3</div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide page5">
+
+        </div>
+        <div class="swiper-slide page6">
+
+        </div>
     </div>
     <div class="pagination"></div>
 </div>
@@ -90,20 +70,74 @@
 <script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/idangerous.swiper.min.js"></script>
 <script>
-    var mySwiper = new Swiper('.swiper-container',{
-        mode: "vertical",
-        loop : false,
-        keyboardControl : true,
-        mousewheelControl : true,
-        pagination : '.pagination',
-        paginationClickable :true
+    var videoEle = $("video")[0];
+    $(function() {
+        var mySwiper = new Swiper('.swiper-container',{
+            mode: "vertical",
+            loop : false,
+            keyboardControl : true,
+            mousewheelControl : true,
+            pagination : '.pagination',
+            paginationClickable :true,
+            onSlideChangeEnd: function(page) {
+                if(page.activeIndex == 3) {
+                    mySwiper1.reInit();
+                }
+            }
+        });
+        var mySwiper1 = new Swiper('.swiper-container-h',{
+            loop : false,
+            mousewheelControl : false,
+            pagination : '.pagination-h',
+            paginationClickable :true
+        });
+
+
+        // 菜单点击显示
+        $("#btn-menu").on("click",function() {
+            var clickable = $(this).data("clickable");
+            if(clickable) {
+                $("#menu-list").show();
+                this.src = "img/menu-close-white.png";
+                $(this).data("clickable", false);
+                // 模糊效果
+//                $(".swiper-container").css({
+//                    "filter":"blur(3px)",
+//                    "-webkit-filter":"blur(3px)"
+//                });
+            } else {
+                $("#menu-list").hide();
+                this.src = "img/menu-white.png";
+                $(this).data("clickable", true);
+                // 模糊效果去除
+//                $(".swiper-container").css({
+//                    "filter":"",
+//                    "-webkit-filter":""
+//                });
+            }
+        });
+        // 菜单列表点击
+        $("#menu-list ul li").on("click", function() {
+            $(this).addClass("on").siblings().removeClass("on");
+
+            $("#btn-menu")[0].src = "img/menu-white.png";
+            $("#btn-menu-black")[0].src = "img/menu-black.png";
+            $("#btn-menu-black").data("clickable", true);
+            $("#btn-menu").data("clickable", true);
+            $("#menu-list").hide();
+
+            // 模糊效果去除
+//            $(".swiper-container-v").css({
+//                "filter":"",
+//                "-webkit-filter":""
+//            });
+
+            var index = $(this).index();
+            mySwiper.swipeTo(index, 500, true);
+        });
+
     });
-    var mySwiper1 = new Swiper('.swiper-container-h',{
-        loop : false,
-        mousewheelControl : true,
-        pagination : '.pagination-h',
-        paginationClickable :true
-    })
+
 </script>
 
 </body>

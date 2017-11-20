@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>手机站-test</title>
+    <link rel="stylesheet" href="css/sj.css" />
+    <script>
+        (function () {
+            var html = document.documentElement;
+            var width = html.getBoundingClientRect().width;
+            var fs = width/16;
+            html.style.fontSize = fs+"px";
+        })()
+
+        var browser={     
+            versions:function(){      
+                   var u = navigator.userAgent, app = navigator.appVersion;      
+                   return {//移动终端浏览器版本信息      
+                        trident: u.indexOf('Trident') > -1, //IE内核     
+                        presto: u.indexOf('Presto') > -1, //opera内核     
+                        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核     
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核     
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端     
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端     
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器     
+                        iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器     
+                        iPad: u.indexOf('iPad') > -1, //是否iPad       
+                        webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部     
+                        weixin: u.indexOf('MicroMessenger') > -1, //是否微信      
+                        qq: u.match(/\sQQ/i) == " qq" //是否QQ     
+                    };     
+                 }(),     
+                 language:(navigator.browserLanguage || navigator.language).toLowerCase()     
+        }      
+     
+        // if(browser.versions.mobile || browser.versions.ios || browser.versions.android ||      
+        // browser.versions.iPhone || browser.versions.iPad){window.location = "1.html";}
+    </script>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<script src="js/swiper.js"></script>
+
+<div class="top">
+    <img src="../img/small/logo.png" width="142">
+    <div class="top-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    
+</div>
+<div class="menu-list">
+    <ul>
+        <li class="on">首页</li>
+        <li>产品介绍</li>
+        <li>新闻资讯</li>
+        <li>关于公司</li>
+        <li>合作伙伴</li>
+        <li>联系我们</li>
+    </ul>
+</div>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide first">
+            <div class="words">
+                <div class="word bg11"><img src="../img/bg11.png" width="100%"></div>
+                <div class="word bg12"><img src="../img/bg12.png" width="100%"></div>
+                <div class="word bg13"><img src="../img/bg13.png" width="100%"></div>
+            </div>
+            <div class="next"></div>
+        </div>
+        <div class="swiper-slide second">
+            <div class="bg2"><img src="../img/page2-cont.png" width="100%"></div>
+            <div class="btn">
+                <a href="http://www.3dov.cn/h5/app/index_m-xshd1.html" target="_blank"><img src="../img/btn-down-ios.png" width="43%" class="fl"></a>
+                <a href="http://www.3dov.cn/h5/app/index_m_wx.html" target="_blank"><img src="../img/btn-down-andr.png" width="43%" class="fr"></a>
+            </div>
+            <div class="next"></div>
+        </div>
+        <div class="swiper-slide third">
+            <div class="bg3">
+                <video width="100%" height="100%" src="img/video.mp4" controls autobuffer poster="../img/bg3.png">
+                    <!--<source src="img/video.mp4" type="video/mp4" controls autobuffer>-->
+                </video>
+            </div>
+            <div class="next"></div>
+        </div>
+        <div class="swiper-slide forth">
+            <div class="bg4">
+
+                  <div id="tabs-container">
+                      <div class="tabs"> <a href="#" class="active"></a> <a href="#" ></a> <a href="#"></a> </div>
+                    <div class="my-wrapper">
+                          <div class="my-slide">
+                            <div class="content-slide page4-1">
+                                <div class="cont">
+                                    <h2>企业介绍</h2>
+                                    <p class="des">东方视界成立于2015年7月，由康得新与国广东方共同创立。作为立体视觉内容及技术的引领者，东方视界以精品内容为基础、游戏变现为保障、技术和业务创新为核心，同时基于自身平台、3D技术、IP运营等优势，发展直播、电商等创新业务，打造创新业务形态。</p>
+                                    <p class="more"><a href="../introduction.html" target="_blank">查看更多 > </a></p>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="my-slide">
+                            <div class="content-slide page4-2">
+                                <div class="cont">
+                                    <h2>产品技术</h2>
+                                    <img src="../img/small/technology.png" width="100%">
+                                </div>
+                            </div>
+                          </div>
+                          <div class="my-slide">
+                            <div class="content-slide page4-3">
+                                <div class="cont">
+                                    <h2>社会招聘</h2>
+                                    <table>
+                                        <thead>
+                                        <tr><th>职位名称</th><th>职位类别</th><th>工作地点</th><th>发布时间</th></tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr><td>3D研发<span class="type">实习生</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                        <tr><td>Android开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                        <tr><td>JAVA开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="more"><a href="../recruitList.html" target="_blank">更多职位 > </a></p>
+                                </div>
+                            </div>
+                          </div>
+
+
+                    </div>
+                  </div>
+            </div>
+            <div class="next"></div>
+        </div>
+        <div class="swiper-slide fifth">
+            <div class="bg5"><img src="../img/small/cont5.png" width="90%"></div>
+            <div class="next"></div>
+        </div>
+        <div class="swiper-slide sixth">
+            <div class="map"><img src="../img/map.png" width="70%"></div>
+            <div class="contact"><img src="../img/contact.png" width="70%"></div>
+        </div>
+    </div>
+
+    <div class="loading">
+        <p>0%</p>
+    </div>
+</div>
+
+<script src="../js/jquery-1.10.1.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/sj.js"></script>
+</body>
+</html>
