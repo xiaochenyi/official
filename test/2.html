@@ -153,5 +153,14 @@
 <script src="../js/jquery-1.10.1.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/sj.js"></script>
+<script>
+    /* move */
+    $(document).on("mousemove touchmove",function(evt) {
+        if(evt.preventDefault)
+            evt.preventDefault();
+        else
+            evt.returnValue = false;
+    });
+</script>
 </body>
 </html>

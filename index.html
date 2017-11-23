@@ -1,263 +1,273 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>官网首页</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <script src="js/html5media.min.js"></script>
+    <!--<link href="https://show.metinfo.cn/muban/M1156010/328/favicon.ico" rel="shortcut icon" type="image/x-icon" />-->
+    <style>
+        .browserupgrade{background:red;position: fixed;width:100%;line-height:70px;font-size:20px;z-index: 9999;color: #FFFFFF;text-align: center}
+        .browserupgrade a{text-decoration: underline}
+    </style>
+    <script>
+        var browser={
+            versions:function(){
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {//移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+                    weixin: u.indexOf('MicroMessenger') > -1, //是否微信
+                    qq: u.match(/\sQQ/i) == " qq" //是否QQ
+                };
+            }(),
+            language:(navigator.browserLanguage || navigator.language).toLowerCase()
+        }
+
+        if(browser.versions.mobile || browser.versions.ios || browser.versions.android ||
+                browser.versions.iPhone || browser.versions.iPad){window.location = "indexs.html";}
+    </script>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-<div class="header">
-    <div class="con con-white">
-        <img src="img/logo-white.png" class="fl" id="logo">
-        <img src="img/menu-white.png" class="btn-menu" id="btn-menu" data-clickable="true">
-    </div>
-    <div class="con con-black" style="display: none">
-        <img src="img/logo-black.png" class="fl" id="logo-black">
-        <img src="img/menu-black.png" class="btn-menu" id="btn-menu-black" data-clickable="true">
-    </div>
-</div>
-<div class="menu-list" id="menu-list">
-    <div class="con">
-        <ul>
-            <li class="on"><a href="#page1">首页</a></li>
-            <li><a href="#page2">产品介绍</a></li>
-            <li><a href="#page3">新闻资讯</a></li>
-            <li><a href="#page4">关于公司</a></li>
-            <li><a href="#page5">合作伙伴</a></li>
-            <li><a href="#page6">联系我们</a></li>
-        </ul>
-    </div>
-</div>
+    <!--[if lte IE 8]>
+        <p class="browserupgrade">你正在使用一个<strong>过时</strong>的浏览器。请<a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a>，以提高您的体验。</p>
+    <![endif]-->
 
-<div class="swiper-container swiper-container-v">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide page1" data-hash="page1">
-            <div class="bg"></div>
-        </div>
-        <div class="swiper-slide page2" data-hash="page2">
-            <div class="bg"></div>
-            <div class="cont"><img src="img/page2-cont.png" width="100%"></div>
-            <div class="btn">
-                <a href="http://www.3dov.cn/h5/app/index_m-xshd1.html" target="_blank"><img src="img/btn-down-ios.png" width="43%" class="fl"></a>
-                <a href="http://www.3dov.cn/h5/app/index_m_wx.html" target="_blank"><img src="img/btn-down-andr.png" width="43%" class="fr"></a>
+    <div class="header">
+        <div class="con con-white">
+            <img src="img/logo-white.png" id="logo">
+            <div class="top-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
         </div>
-        <div class="swiper-slide page3" data-hash="page3">
-            <div id="video-wrap" class="video-wrap">
-                <video width="100%" height="100%" src="img/video.mp4" controls autobuffer>
-                    <!--<source src="img/video.mp4" type="video/mp4" controls autobuffer>-->
-                </video>
-                <!--<div class="mask op60"></div>-->
-            </div>
-            <div class="bg"></div>
-            <!-- <div id="video-play" class="video-play circle">
-                <div class="video-play-inner"><span></span></div>
-            </div> -->
+    </div>
+
+    <div class="menu-list" id="menu-list">
+        <div class="con">
+            <ul>
+                <li class="on">首页</li>
+                <li>移动端产品</li>
+                <li>电脑端产品</li>
+                <li>新闻资讯</li>
+                <li>关于公司</li>
+                <li>合作伙伴</li>
+                <li>联系我们</li>
+            </ul>
         </div>
-        <div class="swiper-slide page4" data-hash="page4">
-            <div class="bg"></div>
-            <div class="swiper-container swiper-container-h">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="bg4-1"></div>
-                        <div class="page4-1-cont">
-                            <h2>企业介绍</h2>
-                            <p class="des">东方视界成立于2015年7月，由康得新与国广东方共同创立。作为立体视觉内容及技术的引领者，东方视界以精品内容为基础、游戏变现为保障、技术和业务创新为核心，同时基于自身平台、3D技术、IP运营等优势，发展直播、电商等创新业务，打造创新业务形态。</p>
-                            <p class="more"><a href="introduction.html" target="_blank">查看更多 > </a></p>
-                        </div>
+    </div>
+
+    <div class="swiper-container" id="main">
+        <div class="swiper-wrapper main-wrapper">
+            <div class="swiper-slide main-slide page1" data-hash="slide1">
+                <img src="img/bg11.png" class="ani resize" style="width:33%;height:auto;right:10%;top:17%;" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="img/bg12.png" class="ani resize" style="width:39%;height:auto;right:9%;bottom:2%;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+                <img src="img/bg13.png"  class="ani resize" style="width: 39%;right:9%;bottom:2%;" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+            </div>
+            <div class="swiper-slide main-slide page2" data-hash="slide2">
+                <div class="cont">
+                    <img src="img/3D-logo.png" class="ani resize logo3d" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0">
+                    <ul>
+                        <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s">海量3D视频／游戏／图片／直播／短视频／<br>应用，有颜有趣有料。</li>
+                        <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">多种3D版大IP只在这儿有，高清无码任性看。</li>
+                        <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">3D弹幕、分享、评论、还有奖，多终端体验<br>爽到家。</li>
+                    </ul>
+                    <div class="ani resize btn-down-ios"  swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"><a href="http://www.3dov.cn/h5/app/index_m-xshd1.html" target="_blank"><img src="img/btn-down-ios.png" width="100%"></a></div>
+                    <div class="ani resize btn-down-andr" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"><a href="http://www.3dov.cn/h5/app/index_m_wx.html" target="_blank"><img src="img/btn-down-andr.png" width="100%"></a></div>
+                </div>
+            </div>
+            <div class="swiper-slide main-slide page3" data-hash="slide3">
+                <div class="cont">
+                    <h2 class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s">享受裸眼3D的饕餮视觉盛宴</h2>
+                    <ul>
+                        <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s">全新电影大片、优质纪录片、劲爆MV，震撼3D视觉盛宴</li>
+                        <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">炫酷3D游戏，身临其境，浸入式游戏体验</li>
+                        <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">3D壁纸下载，让你的电脑桌面从此与众不同</li>
+                    </ul>
+                    <div class="ani resize btn-down-pc" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.7s"><a><img src="img/btn-down-pc.png"></a></div>
+                </div>
+            </div>
+            <div class="swiper-slide main-slide page4" data-hash="slide4">
+                    <div class="v-wrap">
+                        <video controls loop autobuffer src="img/video.mp4" preload="auto"></video>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="bg4-2"></div>
-                        <div class="page4-2-cont">
-                            <h2>产品技术</h2>
-                            <img src="img/page4-2-cont.png" width="95%">
+            </div>
+            <div class="swiper-slide main-slide page5" data-hash="slide5">
+                <div id="tabs-container" class="swiper-container">
+                    <div class="tabs"><a href="#" class="active"></a> <a href="#" ></a> <a href="#"></a></div>
+                    <div class="swiper-wrapper my-wrapper">
+                        <div class="swiper-slide my-slide page5-1">
+                            <div class="cont">
+                                <h2>企业介绍</h2>
+                                <p class="des">东方视界由康得新与国广东方共同创立，成立于2015年7月，是立体视觉内容及技术的引领者。东方视界以精品内容为基础、技术和业务创新为驱动，结合自身内容优势的聚合平台和强大的3D应用研发能力，打造旗下APP“3D东东”——将泛娱乐内容与3D技术相融合，为满足用户全方位需求，将持续深度创造集内容、电商等业务的发展新形态，引领视觉未来。</p>
+                                <p class="more"><a href="introduction.html" target="_blank">查看更多 > </a></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg4-3"></div>
-                        <div class="page4-3-cont">
-                            <h2>社会招聘</h2>
-                            <table>
-                                <thead>
+                        <div class="swiper-slide my-slide page5-2">
+                            <div class="cont">
+                                <h2>产品技术</h2>
+                                <img src="img/page4-2-cont.png" width="100%">
+                            </div>
+                        </div>
+                        <div class="swiper-slide my-slide page5-3">
+                            <div class="cont">
+                                <h2>社会招聘</h2>
+                                <table>
+                                    <thead>
                                     <tr><th>职位名称</th><th>职位类别</th><th>工作地点</th><th>发布时间</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>3D研发<span class="type">实习生</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
-                                    <tr><td>Android开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
-                                    <tr><td>JAVA开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
-                                </tbody>
-                            </table>
-                            <p class="more"><a href="recruitList.html" target="_blank">更多职位 > </a></p>
+                                    </thead>
+                                    <tbody>
+                                    <tr onclick="go(1)"><td>3D研发<span class="type">实习生</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                    <tr onclick="go(2)"><td>Android开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                    <tr onclick="go(3)"><td>JAVA开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                    </tbody>
+                                </table>
+                                <p class="more"><a href="recruitList.html" target="_blank">更多职位 > </a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination swiper-pagination-h">
+            </div>
+            <div class="swiper-slide main-slide page6" data-hash="slide6">
+                <img src="img/page5-cont.png" class="ani resize" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0">
+            </div>
+            <div class="swiper-slide main-slide page7" data-hash="slide7">
+                <div class="cont">
+                    <img src="img/map.png" width="40%">
+                    <div class="contact">
+                        <img src="img/contact.png" width="60%">
+                        <!--<h2>联系我们</h2>-->
+                        <!--<h3>东方视界科技 (北京) 有限公司</h3>-->
+                        <!--<p class="en">Oriental Vision Technology (Beijing) Co., Ltd.</p>-->
+                        <!--<p>地址：北京市朝阳区来广营西路5号诚盈中心7号楼6层</p>-->
+                        <!--<p>邮编： 100085</p>-->
+                        <!--<p>电话：+86 010 62581699  / 010-60641790</p>-->
+                        <!--<p>传真： 01060606666-1101</p>-->
+                        <!--<p>网址：www.3dov.cn</p>-->
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="swiper-slide page5" data-hash="page5">
-            <div class="bg"></div>
-            <div class="cont"><img src="img/page5-cont.png" width="100%"></div>
-        </div>
-        <div class="swiper-slide page6" data-hash="page6">
-            <div class="bg"></div>
-            <div class="cont">
-                <img src="img/map.png" width="40%" class="fl">
-                <div class="contact fl">
-                    <h2>联系我们</h2>
-                    <h3>东方视界科技 (北京) 有限公司</h3>
-                    <p class="en">Oriental Vision Technology (Beijing) Co., Ltd.</p>
-                    <p>地址：北京市朝阳区来广营西路5号诚盈中心7号楼6层</p>
-                    <p>邮编： 100085</p>
-                    <p>电话：+86 010 62581699  / 010-60641790</p>
-                    <p>传真： 01060606666-1101</p>
-                    <p>网址：www.3dov.cn</p>
-                </div>
-            </div>
-        </div>
+        <div class="swiper-pagination swiper-pagination-v"></div>
     </div>
-    <div class="swiper-pagination swiper-pagination-v"></div>
-</div>
-
-<script src="js/jquery-1.10.1.min.js"></script>
-<script src="js/jq_swiper.js"></script>
-<script src="js/swiper.animate1.0.2.min.js"></script>
-<script>
-var videoEle = $("#video-wrap video")[0];
-$(function() {
-    
-           // $(".video-play").on("click", function(){
-           //     video.pause();
-           // })
-    // 菜单点击显示
-    $("#btn-menu").on("click",function() {
-        var clickable = $(this).data("clickable");
-        if(clickable) {
-            $("#menu-list").show();
-            this.src = "img/menu-close-white.png";
-            $(this).data("clickable", false);
-            // 模糊效果
-            $(".swiper-container-v").css({
-                "filter":"blur(3px)",
-                "-webkit-filter":"blur(3px)"
-            });
-        } else {
-            $("#menu-list").hide();
-            this.src = "img/menu-white.png";
-            $(this).data("clickable", true);
-            // 模糊效果去除
-            $(".swiper-container-v").css({
-                "filter":"",
-                "-webkit-filter":""
-            });
-        }
-    });
-    $("#btn-menu-black").on("click",function() {
-        var clickable = $(this).data("clickable");
-        if(clickable) {
-            $("#menu-list").show();
-            this.src = "img/menu-close-black.png";
-            $(this).data("clickable", false);
-            // 模糊效果
-            $(".swiper-container-v").css({
-                "filter":"blur(3px)",
-                "-webkit-filter":"blur(3px)"
-            });
-        } else {
-            $("#menu-list").hide();
-            this.src = "img/menu-black.png";
-            $(this).data("clickable", true);
-            // 模糊效果去除
-            $(".swiper-container-v").css({
-                "filter":"",
-                "-webkit-filter":""
-            });
-        }
-    });
-
-    // 菜单列表点击
-    $("#menu-list ul li").on("click", function() {
-        $(this).addClass("on").siblings().removeClass("on");
-
-        $("#btn-menu")[0].src = "img/menu-white.png";
-        $("#btn-menu-black")[0].src = "img/menu-black.png";
-        $("#btn-menu-black").data("clickable", true);
-        $("#btn-menu").data("clickable", true);
-        $("#menu-list").hide();
-
-        // 模糊效果去除
-        $(".swiper-container-v").css({
-            "filter":"",
-            "-webkit-filter":""
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jq_swiper.js"></script>
+    <script src="js/swiper.animate.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('#main',{
+            direction : 'vertical',
+            pagination: '.swiper-pagination-v',
+            paginationClickable: true,
+            wrapperClass : 'main-wrapper',
+            slideClass : 'main-slide',
+            mousewheelControl : true,
+            grabCursor: true,
+            speed:700,
+//            hashnav:true,
+            onInit: function(swiper){
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeStart: function(swiper) {
+                li_on(swiper.activeIndex);
+                if(swiper.activeIndex === 1 || swiper.activeIndex === 6) {
+                    changeHeader("black");
+                } else {
+                    changeHeader("white")
+                }
+                if(swiper.activeIndex === 4){
+                    var tabsSwiper = new Swiper('#tabs-container',{
+                        direction: "horizontal",
+                        speed:500,
+                        wrapperClass : 'my-wrapper',
+                        slideClass : 'my-slide',
+                        touchMoveStopPropagation:false,
+                        onSlideChangeStart: function(tabsSwiper){
+                            console.log(123);
+                            $(".tabs .active").removeClass('active');
+                            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+                        }
+                    });
+                    $(".tabs a").on('click mouseover',function(e){
+                        e.preventDefault();
+                        $(".tabs .active").removeClass('active');
+                        $(this).addClass('active');
+                        tabsSwiper.slideTo( $(this).index());
+                    })
+                }
+            },
+            onSlideChangeEnd: function(swiper){
+                swiperAnimate(swiper);
+            }
         });
-    });
-
-
-
-    var mySwiper = new Swiper('.swiper-container-v',{
-        speed:400,
-        direction : 'vertical',
-        resistance:'100%',
-        loop:false,
-        mousewheelControl : true,
-        grabCursor: true,
-        pagination: '.swiper-pagination-v',
-        paginationClickable: true,
-        hashnav:true,
-        hashnavWatchState:true,
-        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
-            if(swiper.activeIndex == 1 || swiper.activeIndex == 5) {
-                $(".con-white").hide();
-                $(".con-black").show();
-            } else {
-                $(".con-white").show();
-                $(".con-black").hide();
-            }
-            if(swiper.activeIndex == 2) {
-                $(".bg").hide();
-                videoEle.play();
-            } else {
-                $(".bg").show();
-                videoEle.pause();
-            }
-        },
-        onSlideChangeEnd: function(swiper){
-            if(swiper.activeIndex == 1 || swiper.activeIndex == 5) {
-                $(".con-white").hide();
-                $(".con-black").show();
-            } else {
-                $(".con-white").show();
-                $(".con-black").hide();
-            }
-            if(swiper.activeIndex == 2) {
-                $(".bg").hide();
-                videoEle.play();
-            } else {
-                $(".bg").show();
-                videoEle.pause();
-            }
+        // 改变header颜色
+        function changeHeader(color){
+            $(".header img").attr("src","img/logo-" + color + ".png");
+            $(".top-menu").css({
+                borderColor: color
+            });
+            $(".top-menu .bar").css({
+                background: color
+            });
         }
-    });
+        // 菜单列表选中状态
+        function li_on(i) {
+            $(".menu-list .on").removeClass('on');
+            $(".menu-list li").eq(i).addClass('on');
+        }
+        // 跳转页面
+        function go(id) {
+            window.open('recruitDetail-' + id + '.html','_blank');
+        }
 
-    var mySwiper2 = new Swiper('.swiper-container-h',{
-        nested:true,
-        speed:400,
-        resistance:'100%',
-        loop:false,
-        mousewheelControl : false,
-        grabCursor: true,
-        pagination: '.swiper-pagination-h',
-        paginationClickable: true
-    });
-});
+        $(".top-menu").on("click", function() {
+            var el = $(this);
+            if(el.hasClass("cross")) {
+                el.removeClass("cross");
+                $(".menu-list").fadeOut(500);
+                // 模糊效果去除
+                $("#main").css({
+                    "filter":"",
+                    "-webkit-filter":""
+                });
+            } else {
+                el.addClass("cross");
+                $(".menu-list").fadeIn(500);
+                // 模糊效果
+                $("#main").css({
+                    "filter":"blur(3px)",
+                    "-webkit-filter":"blur(3px)"
+                });
+            }
+        });
 
+        $(".menu-list li").on('click',function(e){
+            e.preventDefault();
+            $(".menu-list .on").removeClass('on');
+            $(this).addClass('on');
+            mySwiper.slideTo( $(this).index());
+            $(".top-menu").removeClass("cross");
+            $(".menu-list").fadeOut(500);
+            // 模糊效果去除
+            $("#main").css({
+                "filter":"",
+                "-webkit-filter":""
+            });
+        });
 
-
-</script>
+    </script>
 </body>
 </html>

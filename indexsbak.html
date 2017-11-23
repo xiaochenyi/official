@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>手机站第一版</title>
+    <style>
+    * { margin: 0; padding: 0;}
+
+    body { font: 16px/1.8 "Microsoft Yahei",verdana;}
+
+    .section { position: relative; overflow: hidden;}
+
+    .section .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+
+    .section .bg img { display: block; width: 100%; height: 100%;}
+
+
+    .bg12 { position: absolute; bottom: -392px; width: 100%; height: 392px; background: url(img/bg11.png) 50% 0 no-repeat; opacity: 0; transition: all 1.7s; bottom: 90px\0;}
+
+    /* CSS3过度及动画 */
+    .active .bg12 { bottom: 90px; opacity: 1; transition-delay: 0.7s; }
+
+    /* for lt ie 10 */
+    .ltie10 .bg12 { bottom: 90px; opacity: 1; transition-delay: 0.7s; }
+
+
+
+    /*.main{display: none}*/
+    /******************page-1********************/
+    #loading-page{
+        z-index: 999999;
+        text-align: center;
+        width:100%;
+        position: absolute;top:0px;left:0px;
+    }
+    .loading-page-bg{
+        width: 100%;position: absolute;top:0px;left:0px;
+    }
+    .loading-con{
+        top:45%;position: absolute;width: 100%;text-align: center;
+        z-index: 100;
+    }
+    /*****************loading-page*************************/
+    .immerex-loading-show{
+        width: 8%;position: absolute;left:38%;
+        top:45%;overflow: hidden;
+    }
+    .immerex-loading-show-bg{
+        width: 100%;
+    }
+    .immerex-loading-show-list{
+        width:100%;
+        position: absolute;top:0px;left:0px;
+    }
+    .immerex-loading-show img{
+        width: 100%;display: block;
+    }
+
+    </style>
+
+    <!--<script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>-->
+    <!--<script src="js/idangerous.swiper.min.js" type="text/javascript"></script>-->
+
+
+</head>
+
+<body>
+
+<!--<div id="loading-page">-->
+    <!--<img src="http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading-page.jpg" alt="loading page" class="loading-page-bg"/>-->
+    <!--<div class="immerex-loading-show">-->
+        <!--<img src="http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_bg_3.png" alt="immerex background picture" class="immerex-loading-show-bg"/>-->
+        <!--<div class="immerex-loading-show-list">-->
+            <!--<img src="http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading.png" alt="loading"/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="loading-con">-->
+        <!--<p data-fs="80"><i id="percent">0</i><i>%</i></p>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div id="main" class="main">
+
+</div>
+
+<script>
+//    var winW, winH, sizeList;
+//    function updateSizeList() {
+//        winW = $(window).width();
+//        winH = $(window).height();
+//        if (winW / winH < 192 / 108) {
+//            winH = winW * 108 / 192;
+//        }
+//        sizeList = {
+//            s1: winW * 9 / 40, //3屏immerex专用
+//            s2: winW / 12, //4屏底部专用
+//            s3: winW * 26 / 100, //4屏底部专用
+//            s4: winW * 13 / 200, //loading专用
+//            s5: winW / 25, //nav专用
+//            s6: winH * 216 * 1.5 / 108
+//        };
+//    }
+//
+//
+//    var appPercent = 0;
+//    var loadInterval;
+//    var loadIndex = 0;
+//
+//    function appLoading() {
+//        $("#percent").html(appPercent);
+//        if (appPercent == 100) {
+//            appPercent = 0;
+//            setTimeout(function () {
+//                $("#loading-page").fadeOut(1000, function () {
+//                    clearInterval(loadInterval);
+//                });
+//            }, 1000);
+//        }
+//    }
+//
+//
+//    $(function() {
+//        if ($.browser.msie && parseInt($.browser.version) == 8) {
+//            $(window).resize(function () {
+//                $("#flash-video").height($(window).width() * 108 / 192);
+//            });
+//        }
+//
+////        updateSizeList();
+//        $(window).resize(function () {
+////            updateSizeList();
+//        }).trigger("resize");
+//
+//
+//        var preSource = [
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading-page.jpg"
+//        ];
+//        var imgSource = [
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/nav.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_bg.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_bg_4.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_list.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_show_nav.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/icon-1.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/icon-2.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/icon-3.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/logo-1.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/logo.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_1_bg.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_2_bg.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_3_bg.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_4_bg.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page2-icon-bg.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page2-icon-cur.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page3-icon-1.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page3-icon-2.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page3-icon-3.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-1-1.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-2.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-3.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-4.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_1.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_1_cur.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_2.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_2_cur.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_3.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_3_cur.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_4.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_4_cur.png",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_pic_1.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_pic_2.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_pic_3.jpg",
+//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_icon_11.png"
+//        ];
+//        var preCount = 0;
+//        for (j in preSource) {
+//            var img1 = new Image();
+//            img1.onload = function () {
+//                preCount++;
+//                if (preCount == 2) {
+//                    $("#main").show();
+//                    loadInterval = setInterval(function () {
+//                        loadIndex = loadIndex >= 52 ? 0 : loadIndex + 1;
+//                        $(".immerex-loading-show-list").css("top", -1 * ($(window).width() * 13 / 200) * loadIndex);
+//                    }, 50);
+//                    for (i in imgSource) {
+//                        var img = new Image();
+//                        img.onload = function () {
+//                            appPercent += 2;
+//                            if (appPercent == imgSource.length * 2) {
+//                                appPercent = 100;
+////                                $.fn.fullpage({
+////
+////                                    verticalCentered: false,
+////
+////                                    anchors: ['page1', 'page2', 'page3'],
+////
+////                                    navigation: true,
+////
+////                                    navigationTooltips: ['首页', '视觉', '交互']
+////
+////                                });
+//                            }
+//                            appLoading();
+//                        };
+//                        img.onerror = function () {
+//                            img.src = imgSource[i];
+//                        };
+//                        img.src = imgSource[i];
+//                    }
+//                }
+//            }
+//            img1.onerror = function () {
+//                img1.src = imgSource[j];
+//            };
+//            img1.src = preSource[j];
+//        }
+//    })
+</script>
+</body>
+</html>

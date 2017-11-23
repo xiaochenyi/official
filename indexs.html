@@ -1,223 +1,300 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>手机站第一版</title>
-    <style>
-    * { margin: 0; padding: 0;}
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>东方视界</title>
+    <link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="css/sj.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <script>
+        (function () {
+            var html = document.documentElement;
+            var width = html.getBoundingClientRect().width;
+            var fs = width/16;
+            html.style.fontSize = fs+"px";
+        })()
 
-    body { font: 16px/1.8 "Microsoft Yahei",verdana;}
-
-    .section { position: relative; overflow: hidden;}
-
-    .section .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
-
-    .section .bg img { display: block; width: 100%; height: 100%;}
-
-
-    .bg12 { position: absolute; bottom: -392px; width: 100%; height: 392px; background: url(img/bg11.png) 50% 0 no-repeat; opacity: 0; transition: all 1.7s; bottom: 90px\0;}
-
-    /* CSS3过度及动画 */
-    .active .bg12 { bottom: 90px; opacity: 1; transition-delay: 0.7s; }
-
-    /* for lt ie 10 */
-    .ltie10 .bg12 { bottom: 90px; opacity: 1; transition-delay: 0.7s; }
-
-
-
-    /*.main{display: none}*/
-    /******************page-1********************/
-    #loading-page{
-        z-index: 999999;
-        text-align: center;
-        width:100%;
-        position: absolute;top:0px;left:0px;
-    }
-    .loading-page-bg{
-        width: 100%;position: absolute;top:0px;left:0px;
-    }
-    .loading-con{
-        top:45%;position: absolute;width: 100%;text-align: center;
-        z-index: 100;
-    }
-    /*****************loading-page*************************/
-    .immerex-loading-show{
-        width: 8%;position: absolute;left:38%;
-        top:45%;overflow: hidden;
-    }
-    .immerex-loading-show-bg{
-        width: 100%;
-    }
-    .immerex-loading-show-list{
-        width:100%;
-        position: absolute;top:0px;left:0px;
-    }
-    .immerex-loading-show img{
-        width: 100%;display: block;
-    }
-
-    </style>
-
-    <!--<script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>-->
-    <!--<script src="js/idangerous.swiper.min.js" type="text/javascript"></script>-->
-
-
+        var browser={     
+            versions:function(){      
+                   var u = navigator.userAgent, app = navigator.appVersion;      
+                   return {//移动终端浏览器版本信息      
+                        trident: u.indexOf('Trident') > -1, //IE内核     
+                        presto: u.indexOf('Presto') > -1, //opera内核     
+                        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核     
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核     
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端     
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端     
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器     
+                        iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器     
+                        iPad: u.indexOf('iPad') > -1, //是否iPad       
+                        webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部     
+                        weixin: u.indexOf('MicroMessenger') > -1, //是否微信      
+                        qq: u.match(/\sQQ/i) == " qq" //是否QQ     
+                    };     
+                 }(),     
+                 language:(navigator.browserLanguage || navigator.language).toLowerCase()     
+        }      
+     
+        if(browser.versions.mobile || browser.versions.ios || browser.versions.android ||
+        browser.versions.iPhone || browser.versions.iPad){}else{window.location = "index.html";}
+    </script>
 </head>
-
 <body>
 
-<!--<div id="loading-page">-->
-    <!--<img src="http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading-page.jpg" alt="loading page" class="loading-page-bg"/>-->
-    <!--<div class="immerex-loading-show">-->
-        <!--<img src="http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_bg_3.png" alt="immerex background picture" class="immerex-loading-show-bg"/>-->
-        <!--<div class="immerex-loading-show-list">-->
-            <!--<img src="http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading.png" alt="loading"/>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="loading-con">-->
-        <!--<p data-fs="80"><i id="percent">0</i><i>%</i></p>-->
-    <!--</div>-->
-<!--</div>-->
-
-<div id="main" class="main">
-
+<div class="top">
+    <img src="img/small/logo.png" width="142">
+    <div class="top-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
+<div class="menu-list">
+    <ul>
+        <li class="on">首页</li>
+        <li>产品介绍</li>
+        <li>新闻资讯</li>
+        <li>关于公司</li>
+        <li>合作伙伴</li>
+        <li>联系我们</li>
+    </ul>
 </div>
 
+<div class="swiper-container" id="main">
+    <div class="swiper-wrapper main-wrapper">
+        <div class="swiper-slide main-slide page1" data-hash="slide1">
+            <img src="img/bg11.png" class="ani resize" style="width:65%;right:5%;top:33%;" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="0s">
+            <img src="img/bg12.png" class="ani resize" style="width:70%;right:3%;bottom:23%;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+            <img src="img/bg13.png"  class="ani resize" style="width:70%;right:3%;bottom:23%;" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+            <div class="next"><img src="img/next_white.png" width="100%"></div>
+        </div>
+        <div class="swiper-slide main-slide page2" data-hash="slide2">
+            <div class="cont">
+                <img src="img/3D-logo.png" class="ani resize logo3d" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0">
+                <ul>
+                    <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s">海量3D视频／游戏／图片／直播／短视频／应用，有颜有趣有料。</li>
+                    <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">多种3D版大IP只在这儿有，高清无码任性看。</li>
+                    <li class="ani resize"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">3D弹幕、分享、评论、还有奖，多终端体验爽到家。</li>
+                </ul>
+                <div class="ani resize btn-down-ios"  swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"><a href="http://www.3dov.cn/h5/app/index_m-xshd1.html" target="_blank"><img src="img/btn-down-ios.png" width="100%"></a></div>
+                <div class="ani resize btn-down-andr" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"><a href="http://www.3dov.cn/h5/app/index_m_wx.html" target="_blank"><img src="img/btn-down-andr.png" width="100%"></a></div>
+            </div>
+            <div class="next"><img src="img/next_black.png" width="100%"></div>
+        </div>
+        <div class="swiper-slide main-slide page3" data-hash="slide3">
+            <div class="v-wrap">
+                <video controls loop autobuffer src="img/video.mp4" preload="auto" poster="img/bg3.png"></video>
+            </div>
+            <div class="next"><img src="img/next_white.png" width="100%"></div>
+        </div>
+        <div class="swiper-slide main-slide page4" data-hash="slide4">
+            <div id="tabs-container" class="swiper-container">
+                <div class="tabs"><a href="#" class="active"></a> <a href="#" ></a> <a href="#"></a></div>
+                <div class="swiper-wrapper my-wrapper">
+                    <div class="swiper-slide my-slide page4-1">
+                        <div class="cont">
+                            <h2>企业介绍</h2>
+                            <p class="des">东方视界由康得新与国广东方共同创立，成立于2015年7月，是立体视觉内容及技术的引领者。东方视界以精品内容为基础、技术和业务创新为驱动，结合自身内容优势的聚合平台和强大的3D应用研发能力，打造旗下APP“3D东东”——将泛娱乐内容与3D技术相融合，为满足用户全方位需求，将持续深度创造集内容、电商等业务的发展新形态，引领视觉未来。</p>
+                            <p class="more"><a href="introduction.html" target="_blank">查看更多 > </a></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide my-slide page4-2">
+                        <div class="cont">
+                            <h2>产品技术</h2>
+                            <img src="img/small/technology.png" width="100%">
+                        </div>
+                    </div>
+                    <div class="swiper-slide my-slide page4-3">
+                        <div class="cont">
+                            <h2>社会招聘</h2>
+                            <table>
+                                <thead>
+                                <tr><th>职位名称</th><th>职位类别</th><th>工作地点</th><th>发布时间</th></tr>
+                                </thead>
+                                <tbody>
+                                <tr onclick="go(1)"><td>3D研发<span class="type">实习生</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                <tr onclick="go(2)"><td>Android开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                <tr onclick="go(3)"><td>JAVA开发工程师<span class="type">高级</span></td><td>技术类</td><td>北京市 </td><td>2017-11-3</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="more"><a href="recruitList.html" target="_blank">更多职位 > </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="next"><img src="img/next_white.png" width="100%"></div>
+        </div>
+        <div class="swiper-slide main-slide page5" data-hash="slide5">
+            <img src="img/small/cont5.png" class="ani resize cont5" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="0">
+            <div class="next"><img src="img/next_white.png" width="100%"></div>
+        </div>
+        <div class="swiper-slide main-slide page6" data-hash="slide6">
+            <div class="cont">
+                <img src="img/contact.png" width="100%" style="margin-bottom: 10%">
+                <img src="img/map.png" width="100%">
+                <div class="contact">
+                    <!--<h2>联系我们</h2>-->
+                    <!--<h3>东方视界科技 (北京) 有限公司</h3>-->
+                    <!--<p class="en">Oriental Vision Technology (Beijing) Co., Ltd.</p>-->
+                    <!--<p>地址：北京市朝阳区来广营西路5号诚盈中心7号楼6层</p>-->
+                    <!--<p>邮编： 100085</p>-->
+                    <!--<p>电话：+86 010 62581699  / 010-60641790</p>-->
+                    <!--<p>传真： 01060606666-1101</p>-->
+                    <!--<p>网址：www.3dov.cn</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loading">
+    <p>0%</p>
+</div>
+
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jq_swiper.js"></script>
+<script src="js/swiper.animate.min.js"></script>
 <script>
-//    var winW, winH, sizeList;
-//    function updateSizeList() {
-//        winW = $(window).width();
-//        winH = $(window).height();
-//        if (winW / winH < 192 / 108) {
-//            winH = winW * 108 / 192;
-//        }
-//        sizeList = {
-//            s1: winW * 9 / 40, //3屏immerex专用
-//            s2: winW / 12, //4屏底部专用
-//            s3: winW * 26 / 100, //4屏底部专用
-//            s4: winW * 13 / 200, //loading专用
-//            s5: winW / 25, //nav专用
-//            s6: winH * 216 * 1.5 / 108
-//        };
-//    }
-//
-//
-//    var appPercent = 0;
-//    var loadInterval;
-//    var loadIndex = 0;
-//
-//    function appLoading() {
-//        $("#percent").html(appPercent);
-//        if (appPercent == 100) {
-//            appPercent = 0;
-//            setTimeout(function () {
-//                $("#loading-page").fadeOut(1000, function () {
-//                    clearInterval(loadInterval);
-//                });
-//            }, 1000);
-//        }
-//    }
-//
-//
-//    $(function() {
-//        if ($.browser.msie && parseInt($.browser.version) == 8) {
-//            $(window).resize(function () {
-//                $("#flash-video").height($(window).width() * 108 / 192);
-//            });
-//        }
-//
-////        updateSizeList();
-//        $(window).resize(function () {
-////            updateSizeList();
-//        }).trigger("resize");
-//
-//
-//        var preSource = [
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/loading-page.jpg"
-//        ];
-//        var imgSource = [
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/nav.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_bg.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_bg_4.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_list.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/immerex_show_nav.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/icon-1.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/icon-2.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/icon-3.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/logo-1.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/logo.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_1_bg.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_2_bg.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_3_bg.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/slide_4_bg.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page2-icon-bg.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page2-icon-cur.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page3-icon-1.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page3-icon-2.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page3-icon-3.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-1-1.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-2.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-3.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page4-bg-4.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_1.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_1_cur.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_2.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_2_cur.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_3.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_3_cur.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_4.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/item_4_cur.png",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_pic_1.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_pic_2.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_pic_3.jpg",
-//            "http://vrfile.komovie.cn/web/immerex_v1/en/hp_img/page5_icon_11.png"
-//        ];
-//        var preCount = 0;
-//        for (j in preSource) {
-//            var img1 = new Image();
-//            img1.onload = function () {
-//                preCount++;
-//                if (preCount == 2) {
-//                    $("#main").show();
-//                    loadInterval = setInterval(function () {
-//                        loadIndex = loadIndex >= 52 ? 0 : loadIndex + 1;
-//                        $(".immerex-loading-show-list").css("top", -1 * ($(window).width() * 13 / 200) * loadIndex);
-//                    }, 50);
-//                    for (i in imgSource) {
-//                        var img = new Image();
-//                        img.onload = function () {
-//                            appPercent += 2;
-//                            if (appPercent == imgSource.length * 2) {
-//                                appPercent = 100;
-////                                $.fn.fullpage({
-////
-////                                    verticalCentered: false,
-////
-////                                    anchors: ['page1', 'page2', 'page3'],
-////
-////                                    navigation: true,
-////
-////                                    navigationTooltips: ['首页', '视觉', '交互']
-////
-////                                });
-//                            }
-//                            appLoading();
-//                        };
-//                        img.onerror = function () {
-//                            img.src = imgSource[i];
-//                        };
-//                        img.src = imgSource[i];
-//                    }
-//                }
-//            }
-//            img1.onerror = function () {
-//                img1.src = imgSource[j];
-//            };
-//            img1.src = preSource[j];
-//        }
-//    })
+    var loading = document.querySelector(".loading");
+    var loadingProcess = loading.getElementsByTagName("p")[0];
+    var picArr = [
+        "img/loading.gif","img/small/logo.png","img/small/bg1.png","img/bg11.png","img/bg12.png","img/bg13.png"
+        ,"img/small/bg2.png","img/3D-logo.png","img/btn-down-ios.png","img/btn-down-andr.png"
+        ,"img/bg3.png"
+        ,"img/small/bg4-1.png","img/icon1.png","img/icon2.png","img/icon3.png","img/icon1-active.png","img/icon2-active.png","img/icon3-active.png"
+        ,"img/small/bg4-2.png"
+        ,"img/small/bg4-3.png"
+        ,"img/small/bg5.png","img/small/cont5.png"
+        ,"img/map.png","img/contact.png"
+    ];
+
+    var img =  new Image();
+    var sum = picArr.length;
+    var now = 0;
+
+    loadImg();
+    function loadImg(){
+        img.src = picArr[now];
+
+        function go () {
+            now ++ ;
+            loadingProcess.innerHTML = parseInt( now/sum *100 ) + "%";
+            if(now < picArr.length){
+                loadImg()
+            }else{
+                loading.style.display = "none";
+                $("#main")[0].style.opacity = "1";
+
+                action();
+            }
+        }
+        img.onerror = go;
+        img.onload = go;
+    }
+//    action();
+    function action() {
+        var mySwiper = new Swiper('#main',{
+            direction : 'vertical',
+            wrapperClass : 'main-wrapper',
+            slideClass : 'main-slide',
+            mousewheelControl : true,
+            grabCursor: true,
+            speed:700,
+//            hashnav:true,
+            onInit: function(swiper){
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeStart: function(swiper) {
+                li_on(swiper.activeIndex);
+                if(swiper.activeIndex === 3){
+                    var tabsSwiper = new Swiper('#tabs-container',{
+                        direction: "horizontal",
+                        speed:500,
+                        wrapperClass : 'my-wrapper',
+                        slideClass : 'my-slide',
+                        touchMoveStopPropagation:false,
+                        onSlideChangeStart: function(tabsSwiper){
+                            console.log(123);
+                            $(".tabs .active").removeClass('active');
+                            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+                        }
+                    });
+                    $(".tabs a").on('click mouseover',function(e){
+                        e.preventDefault();
+                        $(".tabs .active").removeClass('active');
+                        $(this).addClass('active');
+                        tabsSwiper.slideTo( $(this).index());
+                    })
+                }
+            },
+            onSlideChangeEnd: function(swiper){
+                swiperAnimate(swiper);
+            }
+        });
+
+
+        // 菜单列表选中状态
+        function li_on(i) {
+            $(".menu-list .on").removeClass('on');
+            $(".menu-list li").eq(i).addClass('on');
+        }
+
+        $(".top-menu").on("click", function() {
+            var el = $(this);
+            if(el.hasClass("cross")) {
+                el.removeClass("cross");
+                $(".menu-list").fadeOut(500);
+                // 模糊效果去除
+                $("#main").css({
+                    "filter":"",
+                    "-webkit-filter":""
+                });
+            } else {
+                el.addClass("cross");
+                $(".menu-list").fadeIn(500);
+                // 模糊效果
+                $("#main").css({
+                    "filter":"blur(3px)",
+                    "-webkit-filter":"blur(3px)"
+                });
+            }
+        });
+
+        $(".menu-list li").on('click',function(e){
+            e.preventDefault();
+            $(".menu-list .on").removeClass('on');
+            $(this).addClass('on');
+            mySwiper.slideTo( $(this).index());
+            $(".top-menu").removeClass("cross");
+            $(".menu-list").fadeOut(500);
+            // 模糊效果去除
+            $("#main").css({
+                "filter":"",
+                "-webkit-filter":""
+            });
+        });
+
+        $('.next').click(function(){
+            mySwiper.slideNext();
+        })
+    }
+
+    // 跳转页面
+    function go(id) {
+        window.open('recruitDetail-' + id + '.html','_blank');
+    }
 </script>
 </body>
 </html>
