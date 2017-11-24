@@ -99,7 +99,7 @@ body {
 .page6{background: #fff no-repeat center center; background-size: cover}
 
 /*-------------page2--------------*/
-.page2 .cont{position: absolute;left:40%;top:53%;width: 71%;height: 50%;
+.page2 .cont{position: absolute;left:40%;top:53%;width: 71%;height: 53%;
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);color: #6F6F6F;font-size: 16px;}

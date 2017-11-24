@@ -102,8 +102,9 @@
             </div>
             <div class="swiper-slide main-slide page4" data-hash="slide4">
                     <div class="v-wrap">
-                        <video controls loop autobuffer src="img/video.mp4" preload="auto"></video>
+                        <video controls loop autobuffer src="img/video.mp4" preload="auto" poster="img/bg3.png"></video>
                     </div>
+                    <img class="video-action" src="img/loading.gif" width="74" height="74">
             </div>
             <div class="swiper-slide main-slide page5" data-hash="slide5">
                 <div id="tabs-container" class="swiper-container">
@@ -167,6 +168,18 @@
     <script src="js/jq_swiper.js"></script>
     <script src="js/swiper.animate.min.js"></script>
     <script>
+        var v = $("video")[0];
+        v.onloadstart = function() {
+            $(".video-action").attr("src", "img/loading.gif")
+        };
+
+        v.onloadedmetadata = function() {
+            $(".video-action").attr("src", "img/icon_play.png")
+        };
+        $(".video-action").on("click", function() {
+            $(this).hide();
+            v.play();
+        });
         var mySwiper = new Swiper('#main',{
             direction : 'vertical',
             pagination: '.swiper-pagination-v',
