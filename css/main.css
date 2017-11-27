@@ -133,8 +133,8 @@ body {
 .page2 li:nth-of-type(3){top:270px;}
 .btn-down-ios a,.btn-down-andr a,.btn-down-pc a{display: inline-block;cursor: pointer}
 .btn-down-ios img,.btn-down-andr img,.btn-down-pc img{visibility: hidden}
-.btn-down-ios{position:absolute;width:200px;left:0;bottom:0;background:url("../img/btn-down-ios.png") center no-repeat;background-size: contain;}
-.btn-down-andr{position:absolute;width:200px;left:35%;bottom:0;background:url("../img/btn-down-andr.png") center no-repeat;background-size: contain;}
+.btn-down-ios{position:absolute;width:200px;left:0;bottom:2px;background:url("../img/btn-down-ios.png") center no-repeat;background-size: contain;}
+.btn-down-andr{position:absolute;width:200px;left:35%;bottom:2px;background:url("../img/btn-down-andr.png") center no-repeat;background-size: contain;}
 .btn-down-ios:hover{background-image: url("../img/btn-down-ios-hover.png")}
 .btn-down-andr:hover{background-image: url("../img/btn-down-andr-hover.png")}
 /*--------------------page3--------------------*/
@@ -256,7 +256,12 @@ body {
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);}
-.contact{position: absolute;left: 44%;top:0;width: 63%;color: #000000}
+.contact{position: absolute;left: 44%;top:0;width: 63%;color: #000000;}
+.contact h2,.contact h3{font-weight: normal;letter-spacing: 2px;}
+.contact h2{font-size: 40px;padding-bottom: 40px;}
+.contact h3{font-size: 28px;line-height: 1.2;}
+.contact p{line-height: 2.5;font-size: 18px;}
+.contact p.en{line-height: 1;font-size: 16px;padding-bottom: 30px;}
 
 /*-------二级页面(企业介绍)----------*/
 .container{width: 96%;height: 100%;margin:0 auto;

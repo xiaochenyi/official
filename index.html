@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=0.01">
     <link rel="stylesheet" type="text/css" href="css/animate.min.css">
     <!--<link href="https://show.metinfo.cn/muban/M1156010/328/favicon.ico" rel="shortcut icon" type="image/x-icon" />-->
     <style>
@@ -60,10 +60,10 @@
         <div class="con">
             <ul>
                 <li class="on">首页</li>
-                <li>移动端产品</li>
-                <li>电脑端产品</li>
-                <li>新闻资讯</li>
-                <li>关于公司</li>
+                <li>移动产品</li>
+                <li>Win10产品</li>
+                <li>宣传视频</li>
+                <li>企业宣传</li>
                 <li>合作伙伴</li>
                 <li>联系我们</li>
             </ul>
@@ -114,7 +114,7 @@
                             <div class="cont">
                                 <h2>企业介绍</h2>
                                 <p class="des">东方视界由康得新与国广东方共同创立，成立于2015年7月，是立体视觉内容及技术的引领者。东方视界以精品内容为基础、技术和业务创新为驱动，结合自身内容优势的聚合平台和强大的3D应用研发能力，打造旗下APP“3D东东”——将泛娱乐内容与3D技术相融合，为满足用户全方位需求，将持续深度创造集内容、电商等业务的发展新形态，引领视觉未来。</p>
-                                <p class="more"><a href="introduction.html" target="_blank">查看更多 > </a></p>
+                                <!--<p class="more"><a href="introduction.html" target="_blank">查看更多 > </a></p>-->
                             </div>
                         </div>
                         <div class="swiper-slide my-slide page5-2">
@@ -149,15 +149,14 @@
                 <div class="cont">
                     <img src="img/map.png" width="40%">
                     <div class="contact">
-                        <img src="img/contact.png" width="60%">
-                        <!--<h2>联系我们</h2>-->
-                        <!--<h3>东方视界科技 (北京) 有限公司</h3>-->
-                        <!--<p class="en">Oriental Vision Technology (Beijing) Co., Ltd.</p>-->
-                        <!--<p>地址：北京市朝阳区来广营西路5号诚盈中心7号楼6层</p>-->
-                        <!--<p>邮编： 100085</p>-->
-                        <!--<p>电话：+86 010 62581699  / 010-60641790</p>-->
-                        <!--<p>传真： 01060606666-1101</p>-->
-                        <!--<p>网址：www.3dov.cn</p>-->
+                        <!--<img src="img/contact.png" width="60%">-->
+                        <h2>联系我们</h2>
+                        <h3>东方视界科技 (北京) 有限公司</h3>
+                        <p class="en">Oriental Vision Technology (Beijing) Co., Ltd.</p>
+                        <p>地址：北京市朝阳区来广营西路5号诚盈中心7号楼6层</p>
+                        <p>邮编： 100085&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：010-62581899</p>
+                        <p>商务：bd@3dov.cn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人事：hr@3dov.cn</p>
+                        <p>传真： 01060606666-1101</p>
                     </div>
                 </div>
             </div>
@@ -173,12 +172,17 @@
             $(".video-action").attr("src", "img/loading.gif")
         };
 
-        v.onloadedmetadata = function() {
+        v.oncanplay = function() {
             $(".video-action").attr("src", "img/icon_play.png")
         };
         $(".video-action").on("click", function() {
-            $(this).hide();
-            v.play();
+            if(v.paused) {
+                $(this).hide();
+                v.play();
+            } else if(v.played) {
+                $(this).show();
+                v.pause();
+            }
         });
         var mySwiper = new Swiper('#main',{
             direction : 'vertical',
@@ -200,6 +204,13 @@
                     changeHeader("black");
                 } else {
                     changeHeader("white")
+                }
+                if(swiper.activeIndex === 3) {
+                    $(".video-action").hide();
+                    v.play();
+                } else {
+                    $(".video-action").show();
+                    v.pause()
                 }
                 if(swiper.activeIndex === 4){
                     var tabsSwiper = new Swiper('#tabs-container',{
